@@ -1,0 +1,9 @@
+//Do Not allow exceptions to expose sensitive information
+
+try {
+  FileInputStream fis =
+      new FileInputStream(System.getenv("APPDATA") + args[0]);
+} catch (FileNotFoundException e) {
+  // Log the exception
+  throw new IOException("Unable to retrieve file", e);
+}
